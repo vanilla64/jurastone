@@ -15,7 +15,7 @@ export default function (req, res) {
     port: 465,
     host: "smtp.gmail.com",
     auth: {
-      user: 'order.jurastone@gmail.coml',
+      user: 'order.jurastone@gmail.com',
       pass: 'Roboweb555Roboweb',
     },
     secure: true,
