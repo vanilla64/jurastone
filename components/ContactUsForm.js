@@ -23,13 +23,15 @@ function ContactUsForm() {
         'Accept': 'application/json, text/plain, */*',
         'Content-Type': 'application/json'
       },
+      // referrerPolicy: 'unsafe-url',
       body: JSON.stringify(formValues)
     })
       .then(res => {
-        if (res.status ===222) {
+        if (res.status === 200) {
           console.log('send')
         }
       }).catch(err => console.log(err))
+
 
     // console.log(formValues)
   }

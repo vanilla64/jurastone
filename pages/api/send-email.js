@@ -8,7 +8,13 @@ export default function (req, res) {
     to: email,
     subject: `Заявка от клиента: ${name}`,
     text: message,
-    html: <div>{ message }</div>
+    html:
+      `
+        <p><strong>Имя:</strong> ${name}</p>
+        <p><strong>Телефон</strong> ${phone}</p>
+        <p><strong>Сообщение:</strong></p>
+        <div>${message}</div>
+      `
   }
 
   const transporter = nodeMailer.createTransport({
@@ -22,11 +28,12 @@ export default function (req, res) {
   })
 
   transporter.sendMail(mailData, (err, info) => {
-    if(err) return console.log(err)
-
-    console.log(info)
+    if(err)
+      console.log(err)
+    else
+      console.log(info)
   })
 
-  res.status(200)
   console.log(req.body)
+  res.status(200)
 }
