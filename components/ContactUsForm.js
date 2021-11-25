@@ -1,18 +1,77 @@
-import React from 'react'
+import React, { useState } from 'react'
 import styles from '../styles/Contacts.module.css'
 
 function ContactUsForm() {
+  const [formValues, setFormValues] = useState({
+    name: '',
+    email: '',
+    phone: '',
+    message: '',
+  })
+
+  const onChange = evt => {
+    const { name, value } = evt.target
+    setFormValues(prev => { return { ...prev, [name]: value, } })
+  }
+
+  const onSubmit = evt => {
+    evt.preventDefault()
+
+    fetch('/api/send-email', {
+      method: 'POST',
+      headers: {
+        'Accept': 'application/json, text/plain, */*',
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(formValues)
+    })
+      .then(res => {
+        if (res.status ===222) {
+          console.log('send')
+        }
+      }).catch(err => console.log(err))
+
+    // console.log(formValues)
+  }
+
   return (
     <div className={styles.formContainer}>
-      <form className={styles.form}>
+      <form
+        onSubmit={onSubmit}
+        className={styles.form}>
         <h4 className={styles.formTitle}>
           Остались вопросы? Оставьте заявку на БЕСПЛАТНУЮ консультацию!
         </h4>
         <div className={styles.inputContainer}>
-          <input className={styles.inputHalfLeft} type="text" placeholder={'Ваше имя'} minLength={2}/>
-          <input className={styles.inputHalfRight} type="email" placeholder={'Ваш email'}/>
-          <input className={styles.inputFull} type="phone" placeholder={'Ваш телефон'}/>
-          <textarea className={styles.inputFull} type="text" placeholder={'Ваше сообщение'}/>
+          <input
+            onChange={onChange}
+            className={styles.inputHalfLeft}
+            type="text"
+            name={'name'}
+            value={formValues.name}
+            placeholder={'Ваше имя'}
+            minLength={2}/>
+          <input
+            onChange={onChange}
+            className={styles.inputHalfRight}
+            type="email"
+            name={'email'}
+            value={formValues.email}
+            placeholder={'Ваш email'}/>
+          <input
+            onChange={onChange}
+            className={styles.inputFull}
+            type="phone"
+            name={'phone'}
+            value={formValues.phone}
+            placeholder={'Ваш телефон'}/>
+          <textarea
+            onChange={onChange}
+            className={styles.inputFull}
+            type="text"
+            name={'message'}
+            value={formValues.message}
+            placeholder={'Ваше сообщение'}/>
           <div className={styles.buttonContainer}>
             <button className={styles.button} type={'submit'}>Отправить</button>
           </div>

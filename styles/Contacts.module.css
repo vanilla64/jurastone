@@ -72,6 +72,8 @@
   padding: 10px;
   margin: 0;
   outline: none;
+  border: none;
+  border-radius: 5px;
 }
 
 .inputContainer textarea {
@@ -79,6 +81,9 @@
   margin: 0;
   height: 200px;
   outline: none;
+  border: none;
+  border-radius: 5px;
+
 }
 
 .inputContainer input[] {
@@ -118,6 +123,18 @@
   border: none;
 }
 
+.agreement {
+  grid-column-start: 1;
+  grid-column-end: 4;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+  font-size: 16px;
+  font-weight: 400;
+  color: #fff;
+}
+
 @media screen and (max-width: 1024px) {
   .form {
     width: 90%;
@@ -147,20 +164,6 @@
     grid-column-start: 1;
     grid-column-end: 4;
   }
-}
-
-.agreement {
-  grid-column-start: 1;
-  grid-column-end: 4;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin: 0;
-  font-size: 16px;
-  line-height: 28px;
-  font-weight: 400;
-  color: #fff;
-  text-align: center;
 }
 
 @media screen and (max-width: 550px) {
