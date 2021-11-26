@@ -1,7 +1,36 @@
-import React from 'react';
+import React, { useState } from 'react'
 import styles from '../styles/HeaderContent.module.css'
 
-function HeaderContent(props) {
+function HeaderContent() {
+  const [formValues, setFormValues] = useState({
+    name: '',
+    email: '',
+    phone: '',
+  })
+
+  const onChange = evt => {
+    const { name, value } = evt.target
+    setFormValues(prev => { return { ...prev, [name]: value, } })
+  }
+
+  const onSubmit = evt => {
+    evt.preventDefault()
+
+    fetch('/api/request-price', {
+      method: 'POST',
+      headers: {
+        'Accept': 'application/json, text/plain, */*',
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(formValues)
+    })
+      .then(res => {
+        if (res.status === 200) {
+          console.log('send')
+        }
+      }).catch(err => console.log(err))
+  }
+
   return (
     <section className={styles.content}>
       <div className={'container'}>
@@ -19,23 +48,29 @@ function HeaderContent(props) {
           Получите просчет стоимости за 5 минут!
         </p>
 
-        <form className={styles.form}>
+        <form onSubmit={onSubmit} className={styles.form}>
           <div className={styles.inputsWrap}>
             <input className={styles.input}
                    type="text"
                    id="name"
                    name="name"
-                   placeholder="Ваше имя"/>
+                   onChange={onChange}
+                   value={formValues.name}
+                   placeholder="Ваше имя" required={true}/>
             <input className={styles.input}
                    type="email"
                    id="email"
                    name="email"
-                   placeholder="Ваш email"/>
+                   onChange={onChange}
+                   value={formValues.email}
+                   placeholder="Ваш email" required={true}/>
             <input className={styles.input}
                    type="phone"
                    id="phone"
                    name="phone"
-                   placeholder="Ваш телефон"/>
+                   onChange={onChange}
+                   value={formValues.phone}
+                   placeholder="Ваш телефон" required={true}/>
           </div>
 
           <div className={styles.buttonContainer}>

@@ -1,5 +1,5 @@
 export default function (req, res) {
-  const { name, email, phone, message } = req.body
+  const { name, email, phone } = req.body
 
   const nodeMailer = require('nodemailer')
 
@@ -7,14 +7,14 @@ export default function (req, res) {
     from: 'order.jurastone@gmail.com',
     to: 'zakaz@jurastone.ru',
     subject: `Заявка от клиента: ${name}`,
-    text: message,
+    text: 'Прошу перезвонить для уточнения просчета стоимости',
     html:
       `
         <p><strong>Имя:</strong> ${name}</p>
-        <p><strong>Телефон</strong> ${phone}</p>
+        <p><strong>Телефон:</strong> ${phone}</p>
         <p><strong>Email:</strong> ${email}</p>
         <p><strong>Сообщение:</strong></p>
-        <div>${message}</div>
+        <div>Прошу перезвонить для уточнения просчета стоимости</div>
       `
   }
 
