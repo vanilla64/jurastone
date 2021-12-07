@@ -5,7 +5,9 @@ export default function (req, res) {
 
   const mailData = {
     from: 'order.jurastone@gmail.com',
-    to: 'zakaz@jurastone.ru',
+    // to: 'zakaz@jurastone.ru',
+    // to: 'vanillaen@gmail.com',
+    to: 'RStruin@gmail.com',
     subject: `Заявка от клиента: ${name}`,
     text: 'Прошу перезвонить для уточнения просчета стоимости',
     html:

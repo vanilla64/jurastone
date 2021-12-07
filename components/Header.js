@@ -16,17 +16,19 @@ function Header(props) {
           <li className={styles.listItem}>
             <i></i>
             <a className={styles.link}
-               href="tel:<b>+7(495)132-74-00</b>">+7 (495) 132-74-00</a>
+               href="tel:+7(495)132-74-00">+7 (495) 132-74-00</a>
           </li>
           <li className={styles.listItem}>
             <i></i>
             <a className={styles.link}
-               href="tel:<b>+7(925)04-777-92</b>">+7 (925) 04-777-92</a>
+               href="tel:+7(925)04-777-92">+7 (925) 04-777-92</a>
           </li>
           <li className={styles.listItem}>
             <i></i>
+            {/*<a className={styles.link}*/}
+            {/*   href="mailto:zakaz@jurastone.ru">zakaz@jurastone.ru</a>*/}
             <a className={styles.link}
-               href="mailto:<b>zakaz@jurastone.ru</b>">zakaz@jurastone.ru</a>
+               href="mailto:vanillaen@yandex.ru">vanillaen@yandex.ru</a>
           </li>
         </ul>
       </div>

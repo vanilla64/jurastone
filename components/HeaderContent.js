@@ -25,10 +25,15 @@ function HeaderContent() {
       body: JSON.stringify(formValues)
     })
       .then(res => {
-        if (res.status === 200) {
-          console.log('send')
-        }
+        console.log('send')
       }).catch(err => console.log(err))
+
+    setFormValues({
+      name: '',
+      email: '',
+      phone: '',
+    })
+
   }
 
   return (

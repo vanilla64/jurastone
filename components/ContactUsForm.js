@@ -31,6 +31,13 @@ function ContactUsForm() {
         }
       })
       .catch(err => console.log(err))
+
+    setFormValues({
+      name: '',
+      email: '',
+      phone: '',
+      message: '',
+    })
   }
 
   return (
