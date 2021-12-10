@@ -28,7 +28,7 @@ function Header(props) {
             {/*<a className={styles.link}*/}
             {/*   href="mailto:zakaz@jurastone.ru">zakaz@jurastone.ru</a>*/}
             <a className={styles.link}
-               href="mailto:vanillaen@yandex.ru">vanillaen@yandex.ru</a>
+               href="mailto:y.kamen@bk.ru">y.kamen@bk.ru</a>
           </li>
         </ul>
       </div>
