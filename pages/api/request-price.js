@@ -7,7 +7,7 @@ export default function (req, res) {
     from: 'order.jurastone@gmail.com',
     // to: 'zakaz@jurastone.ru',
     // to: 'vanillaen@gmail.com',
-    to: 'RStruin@gmail.com, y.kamen@bk.ru',
+    to: 'RStruin@gmail.com, zakaz@jurastone.ru',
     subject: `Заявка от клиента: ${name}`,
     text: 'Прошу перезвонить для уточнения просчета стоимости',
     html:
