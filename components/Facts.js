@@ -6,7 +6,7 @@ import FactsGrid from "./FactsGrid";
 
 function Facts() {
   return (
-    <section className={styles.facts}>
+    <section className={styles.facts} id={'aboutUs'}>
       <div className="container">
         <SectionTitleCenter title={'Факты о нас'} />
         <div className={styles.wrapper}>

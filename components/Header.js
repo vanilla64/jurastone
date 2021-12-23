@@ -4,7 +4,7 @@ import Image from "next/image";
 import logoImg from '../public/logo.png'
 import styles from '../styles/Header.module.css'
 
-function Header(props) {
+function Header({ onMailClick }) {
   const [burgerActive, setBurgerActive] = useState(false)
 
   const handleBurgerClick = () => setBurgerActive(prev => !prev)
@@ -15,6 +15,22 @@ function Header(props) {
         <ul className={styles.contactList}>
           <li className={styles.listItem}>
             <i></i>
+            {/*<a className={styles.link}*/}
+            {/*   href="mailto:zakaz@jurastone.ru">zakaz@jurastone.ru</a>*/}
+            <a onClick={onMailClick} className={styles.link}>
+
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="#0095eb"
+                   viewBox="0 0 16 16" className={styles.iconMail}>
+                <path
+                  d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V4Zm2-1a1 1 0 0 0-1 1v.217l7 4.2 7-4.2V4a1 1 0 0 0-1-1H2Zm13 2.383-4.708 2.825L15 11.105V5.383Zm-.034 6.876-5.64-3.471L8 9.583l-1.326-.795-5.64 3.47A1 1 0 0 0 2 13h12a1 1 0 0 0 .966-.741ZM1 11.105l4.708-2.897L1 5.383v5.722Z"/>
+              </svg>
+
+              {/*// href="mailto:zakaz@jurastone.ru">zakaz@jurastone.ru*/}
+            </a>
+          </li>
+
+          <li className={styles.listItem}>
+            <i></i>
             <a className={styles.link}
                href="tel:+7(495)132-74-00">+7 (495) 132-74-00</a>
           </li>
@@ -23,13 +39,7 @@ function Header(props) {
             <a className={styles.link}
                href="tel:+7(925)04-777-92">+7 (925) 04-777-92</a>
           </li>
-          <li className={styles.listItem}>
-            <i></i>
-            {/*<a className={styles.link}*/}
-            {/*   href="mailto:zakaz@jurastone.ru">zakaz@jurastone.ru</a>*/}
-            <a className={styles.link}
-               href="mailto:zakaz@jurastone.ru">zakaz@jurastone.ru</a>
-          </li>
+
         </ul>
       </div>
       <div className={styles.navbar}>
@@ -67,7 +77,7 @@ function Header(props) {
               </Link>
             </li>
             <li className={styles.navListItem}>
-              <Link href="#about">
+              <Link href="#aboutUs">
                 <a className={styles.navLink}>О нас</a>
               </Link>
             </li>

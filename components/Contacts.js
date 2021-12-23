@@ -5,7 +5,7 @@ import ContactUsForm from "./ContactUsForm";
 
 function Contacts() {
   return (
-    <section >
+    <section id={'contacts'}>
       <SectionTitleCenter title={'Контакты'} />
 
       <iframe

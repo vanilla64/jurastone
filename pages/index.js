@@ -1,4 +1,5 @@
 import Head from 'next/head'
+import { useState } from 'react'
 import styles from '../styles/Main.module.css'
 import Header from "../components/Header"
 import HeaderContent from "../components/HeaderContent"
@@ -10,10 +11,13 @@ import Advantage from "../components/Advantage"
 import Facts from "../components/Facts"
 import Contacts from "../components/Contacts"
 import Footer from "../components/Footer"
+import ContactUsPopup from "../components/ContactUsPopup"
 
 export default function Home() {
+  const [isPopupOpen, setIsPopupOpen] = useState(false)
+
   return (
-    <div>
+  <div>
       <Head>
         <title>Юрский мрамор</title>
         <meta charSet="UTF-8" />
@@ -71,7 +75,7 @@ export default function Home() {
         {/*</script>*/}
       </Head>
 
-      <Header />
+      <Header onMailClick={() => setIsPopupOpen(prev => !prev)} />
 
       <main id={'main'} className={styles.main}>
         <HeaderContent />
@@ -84,6 +88,7 @@ export default function Home() {
         <Contacts />
       </main>
 
+      <ContactUsPopup onOverlayClick={() => setIsPopupOpen(prev => !prev)} isOpen={isPopupOpen} />
       <Footer />
     </div>
   )
